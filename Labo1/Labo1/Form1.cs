@@ -17,7 +17,7 @@ namespace Labo1
         public Form1()
         {
             InitializeComponent();
-            ReadTXT_Files();
+            //ReadTXT_Files();
         }
         #region "OpenFile button"
         private void FB_Open_Click(object sender, EventArgs e)
@@ -27,7 +27,7 @@ namespace Labo1
 
         private void ReadTXT_Files()
         {
-                ReadCoordinates(FileName);
+            ReadCoordinates(FileName);
         }
 
         private void ReadCoordinates(string url)
@@ -38,7 +38,7 @@ namespace Labo1
             {
                 List<float> temp = new List<float>();
                 string[] tokens = line.Split(';');
-                for(int i = 0; i < 6; ++i)
+                for (int i = 0; i < 6; ++i)
                 {
                     temp.Add(float.Parse(tokens[i]));
                 }
@@ -50,7 +50,12 @@ namespace Labo1
         #endregion
         private void Form1_Load(object sender, EventArgs e)
         {
+            ReadTXT_Files();
+        }
 
+        private void BTN_QUITTER_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
