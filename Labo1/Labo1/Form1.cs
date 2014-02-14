@@ -14,6 +14,9 @@ namespace Labo1
     {
         private List<List<float>> tab = new List<List<float>>();
         private string FileName = "labo1.txt";
+        private int Choix = 1;
+        private int nbHomme = 0;
+        private int nbFemme = 0;
         public Form1()
         {
             InitializeComponent();
@@ -56,6 +59,14 @@ namespace Labo1
         private void BTN_QUITTER_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void RB_ALEATOIRE_CheckedChanged(object sender, EventArgs e)
+        {
+            if (sender.ToString() == "BTN_REGEN")
+            {
+                TB_A.Text = "test";
+            }
         }
     }
 }

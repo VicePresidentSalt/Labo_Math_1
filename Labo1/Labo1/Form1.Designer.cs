@@ -206,6 +206,7 @@
             this.RB_STRATE.TabStop = true;
             this.RB_STRATE.Text = "Strate";
             this.RB_STRATE.UseVisualStyleBackColor = true;
+            this.RB_STRATE.CheckedChanged += new System.EventHandler(this.RB_ALEATOIRE_CheckedChanged);
             // 
             // RB_SYSTEMATIQUE
             // 
@@ -217,6 +218,7 @@
             this.RB_SYSTEMATIQUE.TabStop = true;
             this.RB_SYSTEMATIQUE.Text = "Systématique";
             this.RB_SYSTEMATIQUE.UseVisualStyleBackColor = true;
+            this.RB_SYSTEMATIQUE.CheckedChanged += new System.EventHandler(this.RB_ALEATOIRE_CheckedChanged);
             // 
             // RB_ALEATOIRE
             // 
@@ -228,6 +230,7 @@
             this.RB_ALEATOIRE.TabStop = true;
             this.RB_ALEATOIRE.Text = "Aléatoire";
             this.RB_ALEATOIRE.UseVisualStyleBackColor = true;
+            this.RB_ALEATOIRE.CheckedChanged += new System.EventHandler(this.RB_ALEATOIRE_CheckedChanged);
             // 
             // Form1
             // 
