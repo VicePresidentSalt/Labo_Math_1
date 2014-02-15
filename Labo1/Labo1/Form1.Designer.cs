@@ -48,6 +48,7 @@
             this.RB_STRATE = new System.Windows.Forms.RadioButton();
             this.RB_SYSTEMATIQUE = new System.Windows.Forms.RadioButton();
             this.RB_ALEATOIRE = new System.Windows.Forms.RadioButton();
+            this.LBL_Nombre = new System.Windows.Forms.Label();
             this.GB_Choix.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,6 +66,7 @@
             // 
             this.TB_A.Location = new System.Drawing.Point(77, 17);
             this.TB_A.Name = "TB_A";
+            this.TB_A.ReadOnly = true;
             this.TB_A.Size = new System.Drawing.Size(100, 20);
             this.TB_A.TabIndex = 1;
             // 
@@ -72,6 +74,7 @@
             // 
             this.TB_B.Location = new System.Drawing.Point(77, 43);
             this.TB_B.Name = "TB_B";
+            this.TB_B.ReadOnly = true;
             this.TB_B.Size = new System.Drawing.Size(100, 20);
             this.TB_B.TabIndex = 2;
             // 
@@ -79,6 +82,7 @@
             // 
             this.TB_C.Location = new System.Drawing.Point(77, 69);
             this.TB_C.Name = "TB_C";
+            this.TB_C.ReadOnly = true;
             this.TB_C.Size = new System.Drawing.Size(100, 20);
             this.TB_C.TabIndex = 3;
             // 
@@ -86,6 +90,7 @@
             // 
             this.TB_D.Location = new System.Drawing.Point(77, 95);
             this.TB_D.Name = "TB_D";
+            this.TB_D.ReadOnly = true;
             this.TB_D.Size = new System.Drawing.Size(100, 20);
             this.TB_D.TabIndex = 4;
             // 
@@ -93,6 +98,7 @@
             // 
             this.TB_E.Location = new System.Drawing.Point(77, 121);
             this.TB_E.Name = "TB_E";
+            this.TB_E.ReadOnly = true;
             this.TB_E.Size = new System.Drawing.Size(100, 20);
             this.TB_E.TabIndex = 5;
             // 
@@ -100,6 +106,7 @@
             // 
             this.TB_F.Location = new System.Drawing.Point(77, 147);
             this.TB_F.Name = "TB_F";
+            this.TB_F.ReadOnly = true;
             this.TB_F.Size = new System.Drawing.Size(100, 20);
             this.TB_F.TabIndex = 6;
             // 
@@ -159,30 +166,36 @@
             // 
             // BTN_BACK
             // 
+            this.BTN_BACK.Enabled = false;
             this.BTN_BACK.Location = new System.Drawing.Point(39, 173);
             this.BTN_BACK.Name = "BTN_BACK";
             this.BTN_BACK.Size = new System.Drawing.Size(75, 23);
             this.BTN_BACK.TabIndex = 13;
             this.BTN_BACK.Text = "Précédent";
             this.BTN_BACK.UseVisualStyleBackColor = true;
+            this.BTN_BACK.Click += new System.EventHandler(this.BTN_BACK_Click);
             // 
             // BTN_NEXT
             // 
+            this.BTN_NEXT.Enabled = false;
             this.BTN_NEXT.Location = new System.Drawing.Point(120, 173);
             this.BTN_NEXT.Name = "BTN_NEXT";
             this.BTN_NEXT.Size = new System.Drawing.Size(75, 23);
             this.BTN_NEXT.TabIndex = 14;
             this.BTN_NEXT.Text = "Suivant";
             this.BTN_NEXT.UseVisualStyleBackColor = true;
+            this.BTN_NEXT.Click += new System.EventHandler(this.BTN_NEXT_Click);
             // 
             // BTN_REGEN
             // 
+            this.BTN_REGEN.Enabled = false;
             this.BTN_REGEN.Location = new System.Drawing.Point(203, 150);
             this.BTN_REGEN.Name = "BTN_REGEN";
             this.BTN_REGEN.Size = new System.Drawing.Size(75, 23);
             this.BTN_REGEN.TabIndex = 15;
-            this.BTN_REGEN.Text = "Regénérer";
+            this.BTN_REGEN.Text = "Générer";
             this.BTN_REGEN.UseVisualStyleBackColor = true;
+            this.BTN_REGEN.Click += new System.EventHandler(this.BTN_REGEN_Click);
             // 
             // GB_Choix
             // 
@@ -232,11 +245,20 @@
             this.RB_ALEATOIRE.UseVisualStyleBackColor = true;
             this.RB_ALEATOIRE.CheckedChanged += new System.EventHandler(this.RB_ALEATOIRE_CheckedChanged);
             // 
+            // LBL_Nombre
+            // 
+            this.LBL_Nombre.AutoSize = true;
+            this.LBL_Nombre.Location = new System.Drawing.Point(190, 19);
+            this.LBL_Nombre.Name = "LBL_Nombre";
+            this.LBL_Nombre.Size = new System.Drawing.Size(0, 13);
+            this.LBL_Nombre.TabIndex = 17;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(305, 233);
+            this.Controls.Add(this.LBL_Nombre);
             this.Controls.Add(this.GB_Choix);
             this.Controls.Add(this.BTN_REGEN);
             this.Controls.Add(this.BTN_NEXT);
@@ -290,6 +312,7 @@
         private System.Windows.Forms.RadioButton RB_STRATE;
         private System.Windows.Forms.RadioButton RB_SYSTEMATIQUE;
         private System.Windows.Forms.RadioButton RB_ALEATOIRE;
+        private System.Windows.Forms.Label LBL_Nombre;
     }
 }
 
