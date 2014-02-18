@@ -66,7 +66,7 @@ namespace Labo1
             {
                 List<float> temp = new List<float>();
                 string[] tokens = line.Split(';');
-                for (int i = 0; i < 6; ++i)
+                for (int i = 0; i < 7; ++i)
                 {
                     temp.Add(float.Parse(tokens[i]));
                 }
@@ -99,7 +99,7 @@ namespace Labo1
         private void RB_ALEATOIRE_CheckedChanged(object sender, EventArgs e)
         {
             BTN_REGEN.Enabled = true;
-            clearTB();
+            
             if (RB_ALEATOIRE.Checked == true)
             {
                 Choix = choix.aleatoire;
@@ -122,12 +122,14 @@ namespace Labo1
             TB_D.Clear();
             TB_E.Clear();
             TB_F.Clear();
+            LBL_Nombre.Text = "";
 
         }
 
         private void BTN_REGEN_Click(object sender, EventArgs e)
         {
             BTN_REGEN.Text = "Regénérer";
+            clearTB();
             switch(Choix)
             {
                 case choix.aleatoire:
@@ -168,7 +170,12 @@ namespace Labo1
                     }
                 case choix.strate:
                     {
-                        
+                        Numero3();
+                        activerBTN(false, true);
+                        indicecourant = 0;
+
+                        fillTB(indicecourant);
+                        updatelabel();
                         break;
                     }
             }
@@ -198,7 +205,44 @@ namespace Labo1
         }
         private void updatelabel()
         {
-            LBL_Nombre.Text = (indicecourant + 1).ToString();
+            LBL_Nombre.Text = (indicecourant + 1).ToString() + " # " + choisis[indicecourant].ToString();
+        }
+        private void Numero3()
+        {
+            List<List<float>> tabHomme = new List<List<float>>();
+            List<List<float>> tabFemme = new List<List<float>>();
+            int compteurFemme = 0;
+            int compteurHomme = 0;
+            // Ajout des personnes dans les deux tableau (séparé par sexe)
+            for (int i = 0; i < tab.Count; ++i)
+            {
+                if (tab[i][0] == 1)
+                {
+                    tabHomme.Add(tab[i]);
+                    ++compteurHomme;
+                }
+                if (tab[i][0] == 2)
+                {
+                    tabFemme.Add(tab[i]);
+                    ++compteurFemme;
+                }
+            }
+            // Sélection au hasard dans les deux strates en ajoutant les personnes dans la listeTemp (Liste finale)
+            int compteur = 0;
+            for (int i = 0; i < compteurHomme * 20 / tab.Count; ++i)
+            {
+                int randomNum = random.Next(0, tabHomme.Count);
+                choisis[compteur] = Convert.ToInt32(tabHomme[randomNum][6]);
+                compteur++;
+                tabHomme.RemoveAt(randomNum);
+            }
+            for (int x = 0; x <= compteurFemme * 20 / tab.Count; ++x)
+            {
+                int randomNum = random.Next(0, tabFemme.Count);
+                choisis[compteur] = Convert.ToInt32(tabFemme[randomNum][6]);
+                compteur++;
+                tabFemme.RemoveAt(randomNum);
+            }
         }
     }
 }

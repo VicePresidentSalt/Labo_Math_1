@@ -54,7 +54,7 @@
             // 
             // BTN_QUITTER
             // 
-            this.BTN_QUITTER.Location = new System.Drawing.Point(77, 202);
+            this.BTN_QUITTER.Location = new System.Drawing.Point(181, 202);
             this.BTN_QUITTER.Name = "BTN_QUITTER";
             this.BTN_QUITTER.Size = new System.Drawing.Size(75, 23);
             this.BTN_QUITTER.TabIndex = 0;
@@ -64,7 +64,7 @@
             // 
             // TB_A
             // 
-            this.TB_A.Location = new System.Drawing.Point(77, 17);
+            this.TB_A.Location = new System.Drawing.Point(181, 17);
             this.TB_A.Name = "TB_A";
             this.TB_A.ReadOnly = true;
             this.TB_A.Size = new System.Drawing.Size(100, 20);
@@ -72,7 +72,7 @@
             // 
             // TB_B
             // 
-            this.TB_B.Location = new System.Drawing.Point(77, 43);
+            this.TB_B.Location = new System.Drawing.Point(181, 43);
             this.TB_B.Name = "TB_B";
             this.TB_B.ReadOnly = true;
             this.TB_B.Size = new System.Drawing.Size(100, 20);
@@ -80,7 +80,7 @@
             // 
             // TB_C
             // 
-            this.TB_C.Location = new System.Drawing.Point(77, 69);
+            this.TB_C.Location = new System.Drawing.Point(181, 69);
             this.TB_C.Name = "TB_C";
             this.TB_C.ReadOnly = true;
             this.TB_C.Size = new System.Drawing.Size(100, 20);
@@ -88,7 +88,7 @@
             // 
             // TB_D
             // 
-            this.TB_D.Location = new System.Drawing.Point(77, 95);
+            this.TB_D.Location = new System.Drawing.Point(181, 95);
             this.TB_D.Name = "TB_D";
             this.TB_D.ReadOnly = true;
             this.TB_D.Size = new System.Drawing.Size(100, 20);
@@ -96,7 +96,7 @@
             // 
             // TB_E
             // 
-            this.TB_E.Location = new System.Drawing.Point(77, 121);
+            this.TB_E.Location = new System.Drawing.Point(181, 121);
             this.TB_E.Name = "TB_E";
             this.TB_E.ReadOnly = true;
             this.TB_E.Size = new System.Drawing.Size(100, 20);
@@ -104,7 +104,7 @@
             // 
             // TB_F
             // 
-            this.TB_F.Location = new System.Drawing.Point(77, 147);
+            this.TB_F.Location = new System.Drawing.Point(181, 147);
             this.TB_F.Name = "TB_F";
             this.TB_F.ReadOnly = true;
             this.TB_F.Size = new System.Drawing.Size(100, 20);
@@ -113,7 +113,7 @@
             // LB_A
             // 
             this.LB_A.AutoSize = true;
-            this.LB_A.Location = new System.Drawing.Point(36, 20);
+            this.LB_A.Location = new System.Drawing.Point(140, 20);
             this.LB_A.Name = "LB_A";
             this.LB_A.Size = new System.Drawing.Size(14, 13);
             this.LB_A.TabIndex = 7;
@@ -122,7 +122,7 @@
             // LB_B
             // 
             this.LB_B.AutoSize = true;
-            this.LB_B.Location = new System.Drawing.Point(36, 46);
+            this.LB_B.Location = new System.Drawing.Point(140, 46);
             this.LB_B.Name = "LB_B";
             this.LB_B.Size = new System.Drawing.Size(14, 13);
             this.LB_B.TabIndex = 8;
@@ -131,7 +131,7 @@
             // LB_C
             // 
             this.LB_C.AutoSize = true;
-            this.LB_C.Location = new System.Drawing.Point(36, 72);
+            this.LB_C.Location = new System.Drawing.Point(140, 72);
             this.LB_C.Name = "LB_C";
             this.LB_C.Size = new System.Drawing.Size(14, 13);
             this.LB_C.TabIndex = 9;
@@ -140,7 +140,7 @@
             // LB_D
             // 
             this.LB_D.AutoSize = true;
-            this.LB_D.Location = new System.Drawing.Point(36, 98);
+            this.LB_D.Location = new System.Drawing.Point(140, 98);
             this.LB_D.Name = "LB_D";
             this.LB_D.Size = new System.Drawing.Size(15, 13);
             this.LB_D.TabIndex = 10;
@@ -149,7 +149,7 @@
             // LB_E
             // 
             this.LB_E.AutoSize = true;
-            this.LB_E.Location = new System.Drawing.Point(36, 124);
+            this.LB_E.Location = new System.Drawing.Point(140, 124);
             this.LB_E.Name = "LB_E";
             this.LB_E.Size = new System.Drawing.Size(14, 13);
             this.LB_E.TabIndex = 11;
@@ -158,7 +158,7 @@
             // LB_F
             // 
             this.LB_F.AutoSize = true;
-            this.LB_F.Location = new System.Drawing.Point(36, 150);
+            this.LB_F.Location = new System.Drawing.Point(140, 150);
             this.LB_F.Name = "LB_F";
             this.LB_F.Size = new System.Drawing.Size(13, 13);
             this.LB_F.TabIndex = 12;
@@ -167,7 +167,7 @@
             // BTN_BACK
             // 
             this.BTN_BACK.Enabled = false;
-            this.BTN_BACK.Location = new System.Drawing.Point(39, 173);
+            this.BTN_BACK.Location = new System.Drawing.Point(143, 173);
             this.BTN_BACK.Name = "BTN_BACK";
             this.BTN_BACK.Size = new System.Drawing.Size(75, 23);
             this.BTN_BACK.TabIndex = 13;
@@ -178,7 +178,7 @@
             // BTN_NEXT
             // 
             this.BTN_NEXT.Enabled = false;
-            this.BTN_NEXT.Location = new System.Drawing.Point(120, 173);
+            this.BTN_NEXT.Location = new System.Drawing.Point(224, 173);
             this.BTN_NEXT.Name = "BTN_NEXT";
             this.BTN_NEXT.Size = new System.Drawing.Size(75, 23);
             this.BTN_NEXT.TabIndex = 14;
@@ -189,7 +189,7 @@
             // BTN_REGEN
             // 
             this.BTN_REGEN.Enabled = false;
-            this.BTN_REGEN.Location = new System.Drawing.Point(203, 150);
+            this.BTN_REGEN.Location = new System.Drawing.Point(32, 140);
             this.BTN_REGEN.Name = "BTN_REGEN";
             this.BTN_REGEN.Size = new System.Drawing.Size(75, 23);
             this.BTN_REGEN.TabIndex = 15;
@@ -202,7 +202,7 @@
             this.GB_Choix.Controls.Add(this.RB_STRATE);
             this.GB_Choix.Controls.Add(this.RB_SYSTEMATIQUE);
             this.GB_Choix.Controls.Add(this.RB_ALEATOIRE);
-            this.GB_Choix.Location = new System.Drawing.Point(183, 46);
+            this.GB_Choix.Location = new System.Drawing.Point(12, 36);
             this.GB_Choix.Name = "GB_Choix";
             this.GB_Choix.Size = new System.Drawing.Size(110, 95);
             this.GB_Choix.TabIndex = 16;
@@ -248,7 +248,7 @@
             // LBL_Nombre
             // 
             this.LBL_Nombre.AutoSize = true;
-            this.LBL_Nombre.Location = new System.Drawing.Point(190, 19);
+            this.LBL_Nombre.Location = new System.Drawing.Point(72, 20);
             this.LBL_Nombre.Name = "LBL_Nombre";
             this.LBL_Nombre.Size = new System.Drawing.Size(0, 13);
             this.LBL_Nombre.TabIndex = 17;
@@ -257,7 +257,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(305, 233);
+            this.ClientSize = new System.Drawing.Size(316, 238);
             this.Controls.Add(this.LBL_Nombre);
             this.Controls.Add(this.GB_Choix);
             this.Controls.Add(this.BTN_REGEN);
