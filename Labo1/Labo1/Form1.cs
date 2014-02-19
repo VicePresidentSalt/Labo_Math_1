@@ -18,8 +18,6 @@ namespace Labo1
         private string FileName = "labo1.txt";
         private choix Choix = 0;
         private int indicecourant = 0;
-        private int nbHomme = 0;
-        private int nbFemme = 0;
         private Random random = new Random();
 
         private void fillTB(int indice)
@@ -126,6 +124,15 @@ namespace Labo1
 
         }
 
+        private void updateControls()
+        {
+            activerBTN(false, true);
+            indicecourant = 0;
+            fillTB(indicecourant);
+            updatelabel();
+        }
+
+
         private void BTN_REGEN_Click(object sender, EventArgs e)
         {
             BTN_REGEN.Text = "Regénérer";
@@ -134,48 +141,20 @@ namespace Labo1
             {
                 case choix.aleatoire:
                     {
-                        for (int i = 0; i < NBECHANTILLON; i++)
-                        {
-                            bool dejatirer = false;
-                            int randomnumber = random.Next(0, 120);
-                            foreach(int element in choisis)
-                            {
-                                if(element == randomnumber && dejatirer == false)
-                                {
-                                    dejatirer = true;
-                                    break;
-                                }
-                            }
-                            if(!dejatirer)
-                            {
-                                choisis[i] = randomnumber;
-                            }
-                            else
-                            {
-                                i--;
-                            }
-                            
-                        }
-                        activerBTN(false,true);
-                        indicecourant = 0;
-                        
-                        fillTB(indicecourant);
-                        updatelabel();
+                        Numero1();
+                        updateControls();
                         break;
                     }
                 case choix.systematique:
                     {
-
+                        Numero2();
+                        updateControls();
                         break;
                     }
                 case choix.strate:
                     {
                         Numero3();
-                        activerBTN(false, true);
-                        indicecourant = 0;
-
-                        fillTB(indicecourant);
-                        updatelabel();
+                        updateControls();
                         break;
                     }
             }
@@ -242,6 +221,55 @@ namespace Labo1
                 choisis[compteur] = Convert.ToInt32(tabFemme[randomNum][6]);
                 compteur++;
                 tabFemme.RemoveAt(randomNum);
+            }
+        }
+        private void Numero1()
+        {
+            for (int i = 0; i < NBECHANTILLON; i++)
+            {
+                bool dejatirer = false;
+                int randomnumber = random.Next(0, tab.Count);
+                foreach (int element in choisis)
+                {
+                    if (element == randomnumber && dejatirer == false)
+                    {
+                        dejatirer = true;
+                        break;
+                    }
+                }
+                if (!dejatirer)
+                {
+                    choisis[i] = randomnumber;
+                }
+                else
+                {
+                    i--;
+                }
+
+            }
+        }
+        private void Numero2()
+        {
+            int bond = tab.Count / NBECHANTILLON;
+            int choix = random.Next(0,tab.Count);
+            
+            int compteur = 1;
+            choisis[0] = choix;
+
+            while(compteur < NBECHANTILLON)
+            {
+                if(choix + bond >= tab.Count)
+                {
+                    choix = (choix += bond) % tab.Count;
+                    choisis[compteur] = choix;
+                    compteur++;
+                }
+                else
+                {
+                    choix += bond;
+                    choisis[compteur] = choix;
+                    compteur++;
+                }
             }
         }
     }
