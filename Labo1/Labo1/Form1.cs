@@ -184,44 +184,7 @@ namespace Labo1
         }
         private void updatelabel()
         {
-            LBL_Nombre.Text = (indicecourant + 1).ToString() + " # " + choisis[indicecourant].ToString();
-        }
-        private void Numero3()
-        {
-            List<List<float>> tabHomme = new List<List<float>>();
-            List<List<float>> tabFemme = new List<List<float>>();
-            int compteurFemme = 0;
-            int compteurHomme = 0;
-            // Ajout des personnes dans les deux tableau (séparé par sexe)
-            for (int i = 0; i < tab.Count; ++i)
-            {
-                if (tab[i][0] == 1)
-                {
-                    tabHomme.Add(tab[i]);
-                    ++compteurHomme;
-                }
-                if (tab[i][0] == 2)
-                {
-                    tabFemme.Add(tab[i]);
-                    ++compteurFemme;
-                }
-            }
-            // Sélection au hasard dans les deux strates en ajoutant les personnes dans la listeTemp (Liste finale)
-            int compteur = 0;
-            for (int i = 0; i < compteurHomme * 20 / tab.Count; ++i)
-            {
-                int randomNum = random.Next(0, tabHomme.Count);
-                choisis[compteur] = Convert.ToInt32(tabHomme[randomNum][6]);
-                compteur++;
-                tabHomme.RemoveAt(randomNum);
-            }
-            for (int x = 0; x <= compteurFemme * 20 / tab.Count; ++x)
-            {
-                int randomNum = random.Next(0, tabFemme.Count);
-                choisis[compteur] = Convert.ToInt32(tabFemme[randomNum][6]);
-                compteur++;
-                tabFemme.RemoveAt(randomNum);
-            }
+            LBL_Nombre.Text = (indicecourant + 1).ToString() + " # " + (choisis[indicecourant]+1).ToString();
         }
         private void Numero1()
         {
@@ -270,6 +233,43 @@ namespace Labo1
                     choisis[compteur] = choix;
                     compteur++;
                 }
+            }
+        }
+        private void Numero3()
+        {
+            List<List<float>> tabHomme = new List<List<float>>();
+            List<List<float>> tabFemme = new List<List<float>>();
+            int compteurFemme = 0;
+            int compteurHomme = 0;
+            // Ajout des personnes dans les deux tableau (séparé par sexe)
+            for (int i = 0; i < tab.Count; ++i)
+            {
+                if (tab[i][0] == 1)
+                {
+                    tabHomme.Add(tab[i]);
+                    ++compteurHomme;
+                }
+                if (tab[i][0] == 2)
+                {
+                    tabFemme.Add(tab[i]);
+                    ++compteurFemme;
+                }
+            }
+            // Sélection au hasard dans les deux strates en ajoutant les personnes dans la listeTemp (Liste finale)
+            int compteur = 0;
+            for (int i = 0; i < compteurHomme * 20 / tab.Count; ++i)
+            {
+                int randomNum = random.Next(0, tabHomme.Count);
+                choisis[compteur] = Convert.ToInt32(tabHomme[randomNum][6]);
+                compteur++;
+                tabHomme.RemoveAt(randomNum);
+            }
+            for (int x = 0; x <= compteurFemme * 20 / tab.Count; ++x)
+            {
+                int randomNum = random.Next(0, tabFemme.Count);
+                choisis[compteur] = Convert.ToInt32(tabFemme[randomNum][6]);
+                compteur++;
+                tabFemme.RemoveAt(randomNum);
             }
         }
     }
