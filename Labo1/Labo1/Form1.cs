@@ -237,21 +237,27 @@ namespace Labo1
         }
         private void Numero3()
         {
+            // Créé un tableau qui va contenir tout les hommes
             List<List<float>> tabHomme = new List<List<float>>();
+            // Créé un tableau qui va contenir toutes les femmes
             List<List<float>> tabFemme = new List<List<float>>();
             int compteurFemme = 0;
             int compteurHomme = 0;
             // Ajout des personnes dans les deux tableau (séparé par sexe)
             for (int i = 0; i < tab.Count; ++i)
             {
-                if (tab[i][0] == 1)
+                if (tab[i][0] == 1) // Si c'est un homme
                 {
+                    // On l'ajoute dans le tableau d'hommes
                     tabHomme.Add(tab[i]);
+                    // On incrémente le nombre d'hommes
                     ++compteurHomme;
                 }
-                if (tab[i][0] == 2)
+                if (tab[i][0] == 2) // Si c'est une femme
                 {
+                    // On l'ajoute dans le tableau de femmes
                     tabFemme.Add(tab[i]);
+                    // On incrémente le nombre de femmes
                     ++compteurFemme;
                 }
             }
@@ -259,14 +265,18 @@ namespace Labo1
             int compteur = 0;
             for (int i = 0; i < compteurHomme * 20 / tab.Count; ++i)
             {
+                // Créé un nombre aléatoire de 0 à le nombre d'éléments dans le tableau d'hommes
                 int randomNum = random.Next(0, tabHomme.Count);
+                // Insère la position de la personne choisie aléatoirement dans un tableau 
                 choisis[compteur] = Convert.ToInt32(tabHomme[randomNum][6]);
                 compteur++;
                 tabHomme.RemoveAt(randomNum);
             }
             for (int x = 0; x <= compteurFemme * 20 / tab.Count; ++x)
             {
+                // Créé un nombre aléatoire de 0 à le nombre d'éléments dans le tableau de femmes
                 int randomNum = random.Next(0, tabFemme.Count);
+                // Insère la position de la personne choisie aléatoirement dans un tableau 
                 choisis[compteur] = Convert.ToInt32(tabFemme[randomNum][6]);
                 compteur++;
                 tabFemme.RemoveAt(randomNum);
