@@ -1,4 +1,6 @@
-﻿using System;
+﻿//PROGRAMME DE MATH REMIS A JONATHAN LORTIE
+//PAR MATHIEU DUMOULIN , DAREN-KEN ST-LAURENT ET FRANCIS COTE
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,7 @@ namespace Labo1
 {
     public partial class Form1 : Form
     {
+        //DECLARATION DES DONNES GLOBALES
         private List<List<float>> tab = new List<List<float>>();
         private const int NBECHANTILLON = 20;
         private int[] choisis = new int[NBECHANTILLON];
@@ -20,11 +23,12 @@ namespace Labo1
         private int indicecourant = 0;
         private Random random = new Random();
 
+        //fonction qui remplie les textbox a l'aide des donnes dans le tableau de choix
         private void fillTB(int indice)
         {
             if (indice >= NBECHANTILLON)
             {
-                indicecourant = 19;
+                indicecourant = NBECHANTILLON - 1;
                 indice = indicecourant;
             }
             else if (indice < 0)
@@ -39,13 +43,13 @@ namespace Labo1
             TB_E.Text = tab[choisis[indice]][4].ToString();
             TB_F.Text = tab[choisis[indice]][5].ToString();
         }
-
+        //enumeration des choix d'echantillonage possible
         private enum choix { aleatoire, systematique, strate };
         public Form1()
         {
             InitializeComponent();
         }
-        #region "OpenFile button"
+        #region "Lecture de Fichier"
         private void FB_Open_Click(object sender, EventArgs e)
         {
             ReadTXT_Files();
@@ -84,16 +88,18 @@ namespace Labo1
             BTN_BACK.Enabled = status1;
             BTN_NEXT.Enabled = status2;
         }
+        //a l'ouverture on lit le fichier
         private void Form1_Load(object sender, EventArgs e)
         {
             ReadTXT_Files();
         }
 
+        //quitte l'application
         private void BTN_QUITTER_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
+        //lorsque on clique sur un boutton on change la valeur du choix pour effectuer le bon échantillonnage
         private void RB_ALEATOIRE_CheckedChanged(object sender, EventArgs e)
         {
             BTN_REGEN.Enabled = true;
@@ -111,6 +117,7 @@ namespace Labo1
                 Choix = choix.strate;
             }
         }
+        //vide les textbox
         private void clearTB()
         {
             activerBTN(false);
@@ -123,7 +130,7 @@ namespace Labo1
             LBL_Nombre.Text = "";
 
         }
-
+        //met a jour les boutton de l'application
         private void updateControls()
         {
             activerBTN(false, true);
@@ -132,34 +139,46 @@ namespace Labo1
             updatelabel();
         }
 
-
+        //regenaire dependament de quelle bouton de selection qui est coché
         private void BTN_REGEN_Click(object sender, EventArgs e)
         {
+            //change le texte du bouton
             BTN_REGEN.Text = "Regénérer";
+            //vide les textbox deja remplis
             clearTB();
             switch(Choix)
             {
+                    //SI LE BOUTTON ALEATOIRE EST SELECTIONNER
                 case choix.aleatoire:
                     {
+                        //traitement
                         Numero1();
+                        //met a jour les boutton de l'application
                         updateControls();
+                        //fin
                         break;
                     }
                 case choix.systematique:
                     {
+                        //traitement
                         Numero2();
+                        //met a jour les boutton de l'application
                         updateControls();
+                        //fin
                         break;
                     }
                 case choix.strate:
                     {
+                        //traitement
                         Numero3();
+                        //met a jour les boutton de l'application
                         updateControls();
+                        //fin
                         break;
                     }
             }
         }
-
+        //fonction qui fais avancer dans le tableau de 1
         private void BTN_NEXT_Click(object sender, EventArgs e)
         {
             indicecourant++;
@@ -171,7 +190,7 @@ namespace Labo1
 
             fillTB(indicecourant);
         }
-
+        //fonction qui fais reculer dans le tableau pour revenir en arriere de 1
         private void BTN_BACK_Click(object sender, EventArgs e)
         {
             indicecourant--;
@@ -182,30 +201,39 @@ namespace Labo1
                 activerBTN(true);
             fillTB(indicecourant);
         }
+        //Cette methode change les chiffre et l'indice dans le tableau pour indique a quelle position nous somme dans les enregistrements
         private void updatelabel()
         {
             LBL_Nombre.Text = (indicecourant + 1).ToString() + " # " + (choisis[indicecourant]+1).ToString();
         }
         private void Numero1()
         {
+            //tant que le programme n'as pas choisis assez de personne dans la liste des donnees
             for (int i = 0; i < NBECHANTILLON; i++)
             {
                 bool dejatirer = false;
                 int randomnumber = random.Next(0, tab.Count);
+                //pour chaque elements dans le tableau de position choisis on verifier si le nombre aleatoire a deja ete tirer
                 foreach (int element in choisis)
                 {
+                    //si le chiffre est deja tirer
                     if (element == randomnumber && dejatirer == false)
                     {
+                        //on ne veut pas utiliser ce chiffre puisqu'il est dedans deja
                         dejatirer = true;
+                        //arret de la boucle
                         break;
                     }
                 }
+                // si le chiffre n'as pas ete tirer
                 if (!dejatirer)
                 {
+                    //ajout de la position dans le tableau des position choisis
                     choisis[i] = randomnumber;
                 }
-                else
+                else //sinon on retire un nouveau chiffre
                 {
+                    //on veut boucler un tour de plus puisque le nombre est deja tirer
                     i--;
                 }
 
@@ -213,24 +241,37 @@ namespace Labo1
         }
         private void Numero2()
         {
+            //calcul du bond
             int bond = tab.Count / NBECHANTILLON;
+            //nouveau chiffre 'Random'
             int choix = random.Next(0,tab.Count);
             
+            //declaration du compteur
             int compteur = 1;
+            //on met le choix directement car il est le premier au hasard les autre suivront le bond
             choisis[0] = choix;
 
+            //tant que le compteur n'est pas à la taille de l'échantillon
             while(compteur < NBECHANTILLON)
             {
+                //Si le résultat du bon est plus grand que le tableau
                 if(choix + bond >= tab.Count)
                 {
+                    //ajout du bon au choix(choix est la position parmis les elements) on revien au debut du tableau (0) + reste
                     choix = (choix += bond) % tab.Count;
+                    //Ajout de la position de l'element piger dans le tableau
                     choisis[compteur] = choix;
+                    //Addition du compteur
                     compteur++;
                 }
+                    //sinon le resultat est plus petit que le nombre d'elements dans le tableau (on fais seulement incrementer)
                 else
                 {
+                    //ajout du bon au choix(choix est la position parmis les elements)
                     choix += bond;
+                    //Ajout de la position de l'element piger dans le tableau
                     choisis[compteur] = choix;
+                    //Addition du compteur
                     compteur++;
                 }
             }
